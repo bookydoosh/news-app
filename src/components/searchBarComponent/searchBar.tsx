@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { IUserInput } from '../../Common/interfaces'
 
-import { Button, TextField } from '@material-ui/core';
+import { Button,Grid, TextField } from '@material-ui/core';
 
 import './searchBar.css';
 
@@ -34,7 +34,8 @@ function SearchBar(props: ISearchBarProps) {
     }
     
     return <div className="SearchBarContainer">
-       
+        <Grid container spacing={3}>
+            <Grid item xs={6} sm={3}>
                 <TextField
                     required
                     id="outlined-required"
@@ -45,10 +46,16 @@ function SearchBar(props: ISearchBarProps) {
                     value={SearchQuery}
                     onChange={e => handleSearchQueryChange(e.target.value)}
                 />
+            </Grid>
+
+           
+
+            <Grid item xs={6} sm={3}>
                 <Button variant="contained" color="primary" onClick={handleSubmit}>
                     Submit
                 </Button>
-            
+            </Grid>
+        </Grid>
     </div>
 }
 
