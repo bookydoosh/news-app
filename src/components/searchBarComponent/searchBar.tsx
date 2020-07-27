@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { IUserInput } from '../../Common/interfaces'
 
-import {  TextField } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 
 import './searchBar.css';
 
@@ -19,7 +19,19 @@ function SearchBar(props: ISearchBarProps) {
     }
     const [HasFocus, setHasFocus] = useState<boolean>(false);
 
-   
+    const handleSubmit = () => {
+        console.log(SearchQuery);
+
+        if (SearchQuery?.length !== 0 && SearchQuery !== null && SearchQuery !== "") {
+            let UserInput: IUserInput = {
+                SearchQuery: SearchQuery,
+               
+            }
+            props.SetUserInput(UserInput);
+        } else {
+            setHasFocus(true);
+        }
+    }
     
     return <div className="SearchBarContainer">
        
@@ -33,7 +45,9 @@ function SearchBar(props: ISearchBarProps) {
                     value={SearchQuery}
                     onChange={e => handleSearchQueryChange(e.target.value)}
                 />
-                
+                <Button variant="contained" color="primary" onClick={handleSubmit}>
+                    Submit
+                </Button>
             
     </div>
 }
