@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IUserInput } from './Common/interfaces';
+import { IUserInput } from '../../Common/interfaces'
 
 import {  TextField } from '@material-ui/core';
 
@@ -33,6 +33,7 @@ function SearchBar(props: ISearchBarProps) {
                     value={SearchQuery}
                     onChange={e => handleSearchQueryChange(e.target.value)}
                 />
+                
             
     </div>
 }
