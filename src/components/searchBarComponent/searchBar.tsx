@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
-
+import { IUserInput } from './Common/interfaces';
 
 import {  TextField } from '@material-ui/core';
 
 import './searchBar.css';
-export interface IUserInput {
-    SearchQuery: (string |null );
-   
-}
+
 interface ISearchBarProps {
     SetUserInput: (a: IUserInput) => void;
 }
